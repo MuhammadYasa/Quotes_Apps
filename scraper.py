@@ -69,7 +69,7 @@ class Crawler(object):
 
         print("Data generated complete")
 
-    def crawling(self):
+    def crawling(self) -> list[dict[str, str]]:
         results: list[dict[str, str]] = []
 
         quotes: list = self.get_quotes(url=url)
@@ -83,6 +83,8 @@ class Crawler(object):
 
         # olah data
         self.generate_format(results=results, filename="reports")
+
+        return results
 
 if __name__ == "__main__":
     scraper: Crawler = Crawler(url=url)
